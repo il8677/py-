@@ -1,0 +1,10 @@
+
+void main(){
+    print("Hello World")
+
+    int a = 0
+    b = 2
+
+    print(b+a)
+
+}
