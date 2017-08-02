@@ -1,10 +1,27 @@
+class test{
+    int test = 0
+    string name = "Hello"
 
-void main(){
-    print("Hello World")
+    test(int t, string n){
+        test = t
+        name = n
+    }
+}
+
+int main(){
+    print "Hello World"
 
     int a = 0
     b = 2
 
-    print(b+a)
+    print b + a
 
+    if(b==2){
+        print "B is 2!"
+    }
+    else{
+        print "B is not 2!"
+    }
+
+    return 0
 }

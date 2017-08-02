@@ -1,1 +1,0 @@
-variableNames = ["int","string","char","double",]
