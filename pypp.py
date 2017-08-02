@@ -122,7 +122,7 @@ def compile(line):
             if(t[tokenValue] == "print"):
                 cppLine+="std::cout<<"
                 isPrintLine = True
-            if(t[tokenValue] == "class"):
+            elif(t[tokenValue] == "class"):
                 cppLine += "class"
                 isClass = True
             else:
@@ -155,7 +155,7 @@ for line in code.read().split("\n"):
     lex.append(parse(scan(line)))
 
 code.close()
-draftCpp="#include<iostream>\n";
+draftCpp="#include<iostream>\nusing namespace std;\n";
 for l in lex:
     print(l)
     draftCpp+=compile(l)
@@ -167,7 +167,6 @@ i=0
 for c in draftCpp.split("\n"):
     if not(c.__len__() == 1):
         finalCpp+=c+"\n"
-
 
 print (finalCpp)
 
