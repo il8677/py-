@@ -1,3 +1,5 @@
+import os
+
 variableTypes = ["int","string","char","double", "void"]
 keywords = ["class","print","if","else","elif","return"]
 reserved = variableTypes + keywords
@@ -82,7 +84,10 @@ def compile(line):
 
     for t in line:
         if t[tokenType] == "type":
-            cppLine+=t[tokenValue]
+            if t[tokenType] == "string":
+                cppLine+="std::string"
+            else:
+                cppLine+=t[tokenValue]
 
         elif t[tokenType] == "name":
             if(isFirst):
@@ -169,3 +174,6 @@ print (finalCpp)
 outputFile = open("output.cpp", "w")
 outputFile.write(finalCpp)
 outputFile.close()
+
+os.system("g++ -w output.cpp")
+os.system("rm output.cpp")
